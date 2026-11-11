@@ -177,8 +177,8 @@ body.premium{--canvas:#101317;--surface:#191e24;--ink:#f1eee7;--muted:#a6adb6;--
 .premium h2{font-weight:500;font-size:clamp(32px,4vw,57px);line-height:1.12;letter-spacing:-.045em;margin:20px 0 0;text-wrap:balance}
 .premium .section-heading{display:grid;grid-template-columns:1.1fr 1fr;gap:8%;align-items:end;margin-bottom:46px}
 .premium .section-heading p{max-width:390px;font-size:14px;line-height:1.7;color:var(--muted);margin:0}
-.premium .power-story{position:relative;padding-top:0;background:#0b1016;min-height:190vh;border-bottom:1px solid var(--rule)}
-.premium .story-sticky{position:sticky;top:0;min-height:660px;padding-top:30px;padding-bottom:22px}
+.premium .power-story{position:relative;padding-top:0;background:#0b1016;border-bottom:1px solid var(--rule)}
+.premium .story-panel{padding-top:64px;padding-bottom:12px;max-width:1250px}
 .premium .story-heading{display:grid;grid-template-columns:1fr 1fr;gap:0 9%;align-items:end;margin-bottom:24px}
 .premium .story-heading>.section-no{grid-column:1/-1}
 .premium .story-heading h2{font-size:clamp(30px,3.8vw,54px);margin-top:16px}
@@ -204,12 +204,11 @@ body.premium{--canvas:#101317;--surface:#191e24;--ink:#f1eee7;--muted:#a6adb6;--
 .premium .story-controls button:last-child{border-right:0}
 .premium .story-controls button span{font-size:10px;margin-right:10px;color:#6d7c8c}
 .premium .story-controls button[aria-pressed="true"]{color:#f4d29b;background:#e6bb7a0b}
-.premium .story-track{height:2px;background:#25303a;overflow:hidden}
-.premium .story-track span{display:block;height:100%;background:#e6bb7a;transform-origin:left;transform:scaleX(var(--story-progress,0))}
+.premium .story-track{display:none}
 .premium .story-caption{display:grid;grid-template-columns:1fr 1fr;gap:9%;padding-top:18px;font-size:12px;color:var(--ink);min-height:87px}
 .premium .story-caption p{margin:0;max-width:500px}
 .premium .story-caption .story-note{color:#8995a3;font-size:10px;max-width:390px}
-.premium .component-definitions{position:relative;margin-top:80vh;padding-block:32px 60px;display:grid;grid-template-columns:1fr 1fr;gap:0 40px;background:#0b1016}
+.premium .component-definitions{position:relative;margin-top:0;padding-block:12px 44px;display:grid;grid-template-columns:1fr 1fr;gap:0 40px;background:#0b1016;max-width:1250px}
 .premium .component-definitions details{border:0;border-bottom:1px solid var(--rule);padding:0;background:none;border-radius:0}
 .premium .component-definitions summary{min-height:70px;font-size:15px;display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer}
 .premium .definition-short{font-size:10px;color:var(--muted)}
@@ -270,15 +269,53 @@ body.premium{--canvas:#101317;--surface:#191e24;--ink:#f1eee7;--muted:#a6adb6;--
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.premium .power-story{min-height:0}.premium .story-sticky{position:static;min-height:0}.premium .component-definitions{margin-top:0}.premium .flow{animation:none;stroke-dasharray:none}.premium .reveal{opacity:1;transform:none}.premium *{transition:none!important;animation:none!important}.premium .story-heading>p{display:none}}
 @media(max-height:650px) and (min-width:701px){.premium .story-sticky{position:relative}.premium .component-definitions{margin-top:0}.premium .power-story{min-height:0}}
 @media(max-width:700px){.premium .site-nav{display:grid;grid-template-columns:1fr 1fr;gap:0 16px;font-size:12px}.premium .site-nav a{min-height:40px}.premium .site-nav .nav-cta{font-size:12px;width:max-content}.premium .masthead{gap:10px}}
+
+.premium .hero{position:relative;isolation:isolate;grid-template-columns:1.12fr 1fr;gap:0 6%;padding-top:54px;padding-bottom:0;min-height:0;background:radial-gradient(ellipse at 8% 36%,#e6bb7a09,transparent 58%)}
+.premium .hero-copy{position:relative;z-index:1;padding-block:30px 36px}
+.premium h1{font-size:clamp(68px,8.4vw,124px);line-height:.96;letter-spacing:-.07em;margin-bottom:12px;animation:hero-enter .85s both}
+.premium .hero h1::first-line{color:var(--accent)}
+.premium .hero .eyebrow{margin-bottom:32px;animation:hero-enter .7s both}
+.premium .energy-trace{display:block;width:min(100%,420px);height:40px;margin:8px 0 24px;overflow:visible;color:var(--accent)}
+.premium .energy-trace path{fill:none;stroke:currentColor;stroke-width:1.3;stroke-dasharray:600;stroke-dashoffset:600;animation:trace-enter 1.8s .25s ease-out forwards}
+.premium .hero-lead{animation:hero-enter .85s .12s both}
+.premium .hero-actions{animation:hero-enter .85s .22s both}
+.premium .hero-photo{min-height:570px;border:1px solid #6a6051;outline:1px solid #343b43;outline-offset:9px;animation:photo-enter 1.1s both}
+.premium .hero-photo>img{filter:saturate(.65) brightness(.72);object-position:center 45%}
+.premium .hero-photo::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(180deg,#080c1266,transparent 25%,transparent 65%,#080c12bb)}
+.premium .photo-index{position:absolute;z-index:2;left:24px;top:24px;font-size:9px;letter-spacing:.18em;line-height:1.8;color:#fff}
+.premium .photo-index span{font-size:15px;letter-spacing:-.02em}
+.premium .hero-bottom{font-size:10px;padding-top:20px;margin-top:auto}
+.premium .hero-route{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:48px;border-top:1px solid var(--rule)}
+.premium .hero-route a{position:relative;display:flex;flex-direction:column;gap:12px;padding:26px 35px 28px 0;text-decoration:none;min-width:0;border-right:1px solid var(--rule);transition:background .25s}
+.premium .hero-route a+a{padding-left:28px}
+.premium .hero-route a:last-child{border-right:0}
+.premium .hero-route a::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform .35s}
+.premium .hero-route a:hover::after,.premium .hero-route a:focus-visible::after{transform:scaleX(1)}
+.premium .route-no{font-size:9px;letter-spacing:.13em;color:var(--muted)}
+.premium .hero-route strong{font-weight:400;font-size:clamp(13px,1.3vw,19px);letter-spacing:-.025em}
+.premium .route-arrow{position:absolute;right:20px;top:25px;color:var(--accent);font-size:20px;transition:transform .25s}
+.premium .hero-route a:hover .route-arrow{transform:translate(3px,-3px)}
+.premium .story-controls button[aria-pressed="true"]{box-shadow:inset 0 -2px var(--accent)}
+.premium .story-controls button{min-height:52px}
+.premium .story-caption{min-height:76px}
+.premium .component-definitions{margin-top:0}
+.premium .services li{transition:padding-left .25s,color .25s}
+.premium .services li:hover{padding-left:12px;color:var(--accent)}
+@keyframes hero-enter{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes photo-enter{from{opacity:0;clip-path:inset(0 0 100% 0)}to{opacity:1;clip-path:inset(0)}}
+@keyframes trace-enter{to{stroke-dashoffset:0}}
+@media(max-width:1000px){.premium .hero{gap:0 5%;padding-top:40px}.premium h1{font-size:clamp(64px,8.4vw,84px)}.premium .hero-photo{min-height:510px}.premium .hero-copy{padding-top:15px}.premium .hero-route{margin-top:36px}}
+@media(max-width:700px){.premium .hero{grid-template-columns:1fr;padding-top:30px;gap:0}.premium .hero-copy{padding:0 0 30px}.premium h1{font-size:clamp(58px,14vw,90px);max-width:500px}.premium .hero .eyebrow{margin-bottom:24px}.premium .energy-trace{height:30px;margin:4px 0 18px}.premium .hero-photo{min-height:350px;max-height:460px;aspect-ratio:1.15;outline-offset:5px}.premium .hero-lead{font-size:14px}.premium .hero-actions{gap:20px}.premium .hero-route{grid-template-columns:1fr;margin-top:30px}.premium .hero-route a,.premium .hero-route a+a{padding:18px 34px 18px 0;gap:7px;border-right:0;border-bottom:1px solid var(--rule)}.premium .hero-route a:last-child{border-bottom:0}.premium .hero-route strong{font-size:16px}.premium .route-arrow{top:25px;right:5px}.premium .story-panel{padding-top:40px}.premium .power-visual{height:180px}.premium .component-definitions{margin-top:0}.premium .story-caption{min-height:0;padding-bottom:12px}.premium .photo-index{top:18px;left:18px}}
+@media(prefers-reduced-motion:reduce){.premium .energy-trace path{stroke-dashoffset:0}.premium .hero-photo{clip-path:none}.premium .flow{animation:none}}
 </style><meta content="noindex, nofollow" name="robots"/></head>
 <body class="backup premium"><div class="preview-notice">Демо-концепт</div>
 <a class="skip-link" href="#content">Перейти до змісту</a>
 <header class="masthead wrap"><a aria-label="ELX Energy — на початок" class="brand" href="#top"><b aria-hidden="true" class="brand-symbol">ϟ</b><span>ELX Energy</span></a><nav aria-label="Головна навігація" class="site-nav"><a href="#system">Як це працює</a><a href="#work">Монтажі</a><a href="#contacts">Контакти</a><a class="nav-cta" href="#calculator">Підібрати резерв ↗</a></nav></header>
 <main id="content">
-<section class="hero wrap" id="top"><div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span>Резервне живлення <span class="hero-area">/ Київ та Київська область</span></p><h1>Енергія. Без пауз.</h1><p class="hero-lead">Резервне живлення для квартири, будинку та бізнесу. Підбір обладнання, монтаж і запуск під ваші навантаження.</p><div class="hero-actions"><a class="button" href="#calculator">Підібрати систему <span>↗</span></a><a class="text-link" href="#system">Як працює резерв <span>↓</span></a></div><div class="hero-bottom"><span>Інвертор. Акумулятор. Спокій.</span><span class="scroll-hint">Гортайте нижче ↓</span></div></div><figure class="hero-photo"><img alt="ELX Energy" src="photo-0.webp"/><figcaption><span>Монтажі ELX Energy</span><a href="#work">Дивитися роботи ↗</a></figcaption></figure></section>
+<section class="hero wrap" id="top"><div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span>Резервне живлення <span class="hero-area">/ Київ та Київська область</span></p><h1>Енергія. Без пауз.</h1><svg aria-hidden="true" class="energy-trace" viewbox="0 0 480 46"><path d="M0 23H140L153 23L163 6L178 40L194 13L204 23H480"></path></svg><p class="hero-lead">Резервне живлення для квартири, будинку та бізнесу. Підбір обладнання, монтаж і запуск під ваші навантаження.</p><div class="hero-actions"><a class="button" href="#calculator">Підібрати систему <span>↗</span></a><a class="text-link" href="#system">Як працює резерв <span>↓</span></a></div><div class="hero-bottom"><span>Інвертор. Акумулятор. Спокій.</span><span>Під ваш ритм життя</span></div></div><figure class="hero-photo"><img alt="ELX Energy" src="photo-0.webp"/><div aria-hidden="true" class="photo-index">POWER / RESERVE<br/><span>ELX Energy</span></div><figcaption><span>Монтажі ELX Energy</span><a href="#work">Дивитися роботи ↗</a></figcaption></figure><nav aria-label="Знайомство із системою" class="hero-route"><a href="#system"><span class="route-no">01 / ПРИНЦИП</span><strong>Енергія змінює маршрут</strong><span class="route-arrow">↗</span></a><a href="#work"><span class="route-no">02 / МОНТАЖІ</span><strong>Реальні системи в деталях</strong><span class="route-arrow">↗</span></a><a href="#calculator"><span class="route-no">03 / ВАШ РЕЗЕРВ</span><strong>Від приладів до комплектації</strong><span class="route-arrow">↗</span></a></nav></section>
 <section class="power-story" data-site-section="explainer" id="system">
-<div class="story-sticky wrap">
-<div class="story-heading"><span class="section-no">01 / Енергія змінює маршрут</span><h2>Мережа зникає.<br/><span>Ваш ритм — ні.</span></h2><p>Прокрутіть, щоб побачити принцип резервного живлення.</p></div>
+<div class="story-panel wrap">
+<div class="story-heading"><span class="section-no">01 / Енергія змінює маршрут</span><h2>Мережа зникає.<br/><span>Ваш ритм — ні.</span></h2><p>Оберіть стан системи — подивіться, звідки надходить енергія.</p></div>
 <div aria-label="Схема: мережа, інвертор, акумулятор і резервні лінії будинку" class="power-stage" data-phase="0">
 <div class="scene-meta"><span>СХЕМА ЖИВЛЕННЯ</span><span class="scene-status" data-power-status="">МЕРЕЖА АКТИВНА</span></div>
 <svg aria-labelledby="power-title" class="power-visual" role="img" viewbox="0 0 1000 410"><title id="power-title">Інвертор керує живленням резервних ліній від мережі або акумулятора</title><defs><lineargradient id="cabinet" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#9ea6b4"></stop><stop offset=".5" stop-color="#d7dce3"></stop><stop offset="1" stop-color="#7b8491"></stop></lineargradient><lineargradient id="housewall" x1="0" x2="1"><stop stop-color="#39414b"></stop><stop offset="1" stop-color="#202730"></stop></lineargradient><pattern height="40" id="draftgrid" patternunits="userSpaceOnUse" width="40"><path d="M40 0H0V40" fill="none" stroke="#aab6c4" stroke-opacity=".055"></path></pattern><filter id="powerglow"><fegaussianblur stddeviation="4"></fegaussianblur></filter></defs>
@@ -294,7 +331,7 @@ body.premium{--canvas:#101317;--surface:#191e24;--ink:#f1eee7;--muted:#a6adb6;--
 <g class="house"><path d="M660 174L780 98L917 168V296L800 359L660 286Z" fill="url(#housewall)"></path><path d="M800 222L917 168V296L800 359Z" fill="#161f29"></path><path d="M635 180L759 72L941 164L800 232Z" fill="#53606d"></path><path d="M635 180L759 72L802 165L800 232Z" fill="#7c8995"></path><path d="M759 72L941 164L938 177L800 244L635 192V180L800 232L941 164" fill="#25303b"></path><path d="M800 244V359" stroke="#778593" stroke-opacity=".35"></path>
 <g class="windows" fill="#e9b96f"><path d="M683 223L722 241V282L683 263Z"></path><path d="M742 251L779 267V309L742 290Z"></path><path d="M826 247L856 232V272L826 288Z"></path><path d="M876 223L899 211V250L876 262Z"></path></g><g stroke="#19232c" stroke-width="3"><path d="M702 231V272M683 244L722 261M760 259V300M742 273L779 288M841 239V281M826 268L856 252M887 217V256M876 243L899 230"></path></g><path d="M674 302L789 360L926 302" fill="none" stroke="#718193" stroke-width="2"></path></g>
 <g class="scene-labels" fill="#aeb8c4" font-family="Arial,sans-serif" font-size="14" letter-spacing="1"><text text-anchor="middle" x="175" y="338">МЕРЕЖА</text><text text-anchor="middle" x="434" y="87">ІНВЕРТОР</text><text text-anchor="middle" x="320" y="370">АКУМУЛЯТОР</text><text text-anchor="middle" x="801" y="393">ВАШ ДІМ</text></g></svg>
-<div aria-label="Стани системи" class="story-controls" role="group"><button aria-pressed="true" data-story-phase="0" type="button"><span>01</span> Мережа</button><button aria-pressed="false" data-story-phase="1" type="button"><span>02</span> Відключення</button><button aria-pressed="false" data-story-phase="2" type="button"><span>03</span> Резерв</button></div><div class="story-track"><span></span></div>
+<div aria-label="Стани системи" class="story-controls" role="group"><button aria-pressed="true" data-story-phase="0" type="button"><span>01</span> Мережа</button><button aria-pressed="false" data-story-phase="1" type="button"><span>02</span> Відключення</button><button aria-pressed="false" data-story-phase="2" type="button"><span>03</span> Резерв</button></div>
 </div>
 <div class="story-caption"><p data-story-text="">За наявності мережі інвертор живить обрані лінії та може заряджати акумулятор.</p><p class="story-note">Схематична ілюстрація. Час перемикання та перелік резервних ліній залежать від обладнання й схеми підключення.</p></div>
 </div>
@@ -858,34 +895,14 @@ body.premium{--canvas:#101317;--surface:#191e24;--ink:#f1eee7;--muted:#a6adb6;--
   const descriptions=['За наявності мережі інвертор живить обрані лінії та може заряджати акумулятор.','Коли мережа зникає, система з функцією резерву змінює джерело живлення.','Акумулятор віддає енергію через інвертор. Обрані прилади продовжують працювати, доки вистачає заряду.'];
   const status=document.querySelector('[data-power-status]');
   const caption=document.querySelector('[data-story-text]');
-  const sticky=document.querySelector('.story-sticky');
   function phase(value){
     stage.dataset.phase=String(value);
     if(status)status.textContent=statuses[value];
     if(caption)caption.textContent=descriptions[value];
     buttons.forEach((button,index)=>button.setAttribute('aria-pressed',String(index===value)));
   }
-  let queued=false;
-  function update(){
-    queued=false;
-    if(reduced.matches||!sticky)return;
-    const rect=story.getBoundingClientRect();
-    const distance=story.clientHeight-sticky.clientHeight;
-    const progress=Math.max(0,Math.min(1,-rect.top/Math.max(1,distance)));
-    stage.style.setProperty('--story-progress',String(progress));
-    phase(progress<.28?0:progress<.53?1:2);
-  }
-  function schedule(){if(!queued){queued=true;requestAnimationFrame(update);}}
-  buttons.forEach((button,index)=>button.addEventListener('click',()=>{
-    if(reduced.matches||!sticky){phase(index);return;}
-    const distance=story.clientHeight-sticky.clientHeight;
-    const fractions=[0,.39,.76];
-    window.scrollTo({top:window.scrollY+story.getBoundingClientRect().top+distance*fractions[index],behavior:'smooth'});
-  }));
-  window.addEventListener('scroll',schedule,{passive:true});
-  window.addEventListener('resize',schedule);
-  reduced.addEventListener('change',()=>{if(reduced.matches)phase(2);else schedule();});
-  if(reduced.matches)phase(2);else update();
+  buttons.forEach((button,index)=>button.addEventListener('click',()=>phase(index)));
+  phase(0);
   document.querySelectorAll('.work-gallery .photo').forEach(photo=>{
     const image=photo.querySelector('img');
     if(image){const label=document.createElement('span');label.className='work-caption';label.textContent=image.alt;photo.append(label);}
@@ -894,7 +911,7 @@ body.premium{--canvas:#101317;--surface:#191e24;--ink:#f1eee7;--muted:#a6adb6;--
     const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
       if(entry.isIntersecting){entry.target.classList.add('revealed');observer.unobserve(entry.target);}
     }),{threshold:.08});
-    document.querySelectorAll('.section-heading,.services li,.work-gallery .photo,.contact-grid').forEach(el=>{el.classList.add('reveal');observer.observe(el);});
+    document.querySelectorAll('.section-heading,.services li,.work-gallery .photo,.contact-grid,.hero-route a,.story-heading').forEach(el=>{el.classList.add('reveal');observer.observe(el);});
   }
 })();
 </script><style>
